@@ -26,6 +26,10 @@ import CardDetailModal from './components/CardDetailModal'
 import CardPreview from './components/CardPreview'
 import SidebarBoardItem from './components/SidebarBoardItem'
 import SettingsModal from './components/SettingsModal'
+import PomodoroModal from './components/PomodoroModal'
+import TodoModal from './components/TodoModal'
+import { usePomodoroTimer, formatTime, phaseLabel } from './components/usePomodoroTimer'
+import { useTodoList } from './components/useTodoList'
 import {
   clearPersistedAppState,
   loadPersistedAppState,
@@ -107,6 +111,10 @@ function App() {
   const [liveMessage, setLiveMessage] = useState('')
   const [isExporting, setIsExporting] = useState(false)
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+  const [isPomodoroOpen, setIsPomodoroOpen] = useState(false)
+  const [isTodoOpen, setIsTodoOpen] = useState(false)
+  const timer = usePomodoroTimer()
+  const todo = useTodoList()
   const [storageMode, setStorageMode] = useState<StorageMode>(initialPersistence.storageMode)
   const boardExportRef = useRef<HTMLElement | null>(null)
   const importInputRef = useRef<HTMLInputElement | null>(null)
@@ -219,7 +227,7 @@ function App() {
   }, [appState.themeMode])
 
   useEffect(() => {
-    if (!isSettingsOpen && !expandedCardTarget) {
+    if (!isSettingsOpen && !isPomodoroOpen && !isTodoOpen && !expandedCardTarget) {
       return
     }
 
@@ -230,13 +238,23 @@ function App() {
           return
         }
 
+        if (isPomodoroOpen) {
+          setIsPomodoroOpen(false)
+          return
+        }
+
+        if (isTodoOpen) {
+          setIsTodoOpen(false)
+          return
+        }
+
         setIsSettingsOpen(false)
       }
     }
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [expandedCardTarget, isSettingsOpen])
+  }, [expandedCardTarget, isSettingsOpen, isPomodoroOpen, isTodoOpen])
 
   useEffect(() => {
     if (!expandedCardTarget || expandedCard) {
@@ -961,7 +979,27 @@ function App() {
 
         <div className="topbar-actions" aria-label="Application controls">
           {storageMode === 'memory' ? <p className="panel-note topbar-status">Session-only mode</p> : null}
+          {timer.hasStarted ? (
+            <div className="pomo-topbar-widget" data-running={timer.isRunning} data-phase={timer.phase} aria-label="Pomodoro timer">
+              <span className="pomo-topbar-phase">{phaseLabel(timer.phase)}</span>
+              <span className="pomo-topbar-time">{formatTime(timer.timeLeft)}</span>
+              <div className="pomo-topbar-controls">
+                {timer.isRunning ? (
+                  <button className="pomo-topbar-btn" onClick={timer.pause} type="button" aria-label="Pause timer">⏸</button>
+                ) : (
+                  <button className="pomo-topbar-btn" onClick={timer.start} type="button" aria-label="Resume timer">▶</button>
+                )}
+                <button className="pomo-topbar-btn" onClick={timer.reset} type="button" aria-label="Stop timer">⏹</button>
+              </div>
+            </div>
+          ) : null}
           <div className="topbar-primary-actions">
+            <button className="ghost-action" onClick={() => setIsTodoOpen(true)} type="button">
+              Tasks
+            </button>
+            <button className="ghost-action" onClick={() => setIsPomodoroOpen(true)} type="button">
+              Pomodoro
+            </button>
             <button className="ghost-action" onClick={() => setIsSettingsOpen(true)} type="button">
               Settings
             </button>
@@ -1147,6 +1185,10 @@ function App() {
           )}
         </section>
       </main>
+
+      <PomodoroModal isOpen={isPomodoroOpen} onClose={() => setIsPomodoroOpen(false)} timer={timer} />
+
+      <TodoModal isOpen={isTodoOpen} onClose={() => setIsTodoOpen(false)} todo={todo} />
 
       <SettingsModal
         appState={appState}
