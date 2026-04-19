@@ -2038,7 +2038,18 @@ textarea:focus-visible {
 
 /* ── Responsive ── */
 
-@media (max-width: 640px) {\n  .pomo-body {\n    grid-template-columns: 1fr;\n    grid-template-rows: auto 1fr;\n  }\n\n  .pomo-left {\n    border-right: none;\n    border-bottom: 1px solid var(--border-soft);\n    padding: 20px 18px;\n  }\n}
+@media (max-width: 640px) {
+  .pomo-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .pomo-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    padding: 20px 18px;
+  }
+}
 
 /* ── Pomodoro topbar widget ── */
 
