@@ -1,7 +1,7 @@
 import { useDraggable, useDroppable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities'
 import { type CSSProperties } from 'react'
-import { getBoardCardCount, getBoardColumnCount, type Board } from '../lib/tintedFlow'
+import { getBoardCardCount, getBoardColumnCount, type Board } from '../lib/tintedTasks'
 
 type SidebarBoardItemProps = {
   board: Board

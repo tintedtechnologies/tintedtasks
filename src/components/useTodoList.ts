@@ -13,7 +13,7 @@ export type TodoList = {
   items: TodoItem[]
 }
 
-const STORAGE_KEY = 'tinted-flow-todos'
+const STORAGE_KEY = 'tinted-tasks-todos'
 
 function generateId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`

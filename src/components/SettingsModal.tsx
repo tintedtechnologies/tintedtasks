@@ -1,4 +1,4 @@
-import { getBoardCardCount, type Board, type PersistedState, type ThemeMode } from '../lib/tintedFlow'
+import { getBoardCardCount, type Board, type PersistedState, type ThemeMode } from '../lib/tintedTasks'
 import { type StorageMode } from '../lib/persistence'
 import { useDialogFocusTrap } from './useDialogFocusTrap'
 

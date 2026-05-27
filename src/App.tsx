@@ -59,7 +59,7 @@ import {
   type Board,
   type TaskCard,
   type ThemeMode,
-} from './lib/tintedFlow'
+} from './lib/tintedTasks'
 
 type BoardCardTarget = {
   boardId: string
@@ -77,7 +77,7 @@ type OfflineNotice = {
 }
 
 const APP_RELEASE_VERSION = 'v1.0.0'
-const OFFLINE_CACHE_VERSION_KEY = 'tinted-flow-offline-cache-version'
+const OFFLINE_CACHE_VERSION_KEY = 'tinted-tasks-offline-cache-version'
 const OFFLINE_CHANGELOG: Record<string, string[]> = {
   [APP_RELEASE_VERSION]: [
     'Released the local-first single-user planning workspace as v1.0.0.',
@@ -90,7 +90,7 @@ function getInstallPromptDismissedKey(version: string) {
   const majorMatch = version.match(/^v?(\d+)/)
   const majorToken = majorMatch ? `v${majorMatch[1]}` : version
 
-  return `tinted-flow-install-prompt-dismissed-${majorToken}`
+  return `tinted-tasks-install-prompt-dismissed-${majorToken}`
 }
 
 function App() {
@@ -308,7 +308,7 @@ function App() {
 
       setInstallPromptEvent(null)
       setShowInstallPrompt(false)
-      setLiveMessage('Tinted Flow installed.')
+      setLiveMessage('Tinted Tasks installed.')
     }
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
@@ -755,7 +755,7 @@ function App() {
     const timestamp = new Date().toISOString().slice(0, 10)
 
     link.href = url
-    link.download = `tinted-flow-backup-${timestamp}.json`
+    link.download = `tinted-tasks-backup-${timestamp}.json`
     link.click()
     window.URL.revokeObjectURL(url)
     setLiveMessage('JSON backup downloaded.')
@@ -794,8 +794,8 @@ function App() {
       setIsSettingsOpen(false)
       setLiveMessage(`${importedState.boards.length} board${importedState.boards.length === 1 ? '' : 's'} imported.`)
     } catch {
-      window.alert('Import failed. Choose a valid Tinted Flow JSON backup.')
-      setLiveMessage('Import failed. Choose a valid Tinted Flow JSON backup.')
+      window.alert('Import failed. Choose a valid Tinted Tasks JSON backup.')
+      setLiveMessage('Import failed. Choose a valid Tinted Tasks JSON backup.')
     } finally {
       event.target.value = ''
     }
@@ -885,9 +885,9 @@ function App() {
             <section className="app-notice-card" role="status">
               <div className="app-notice-copy">
                 <p className="eyebrow">Install App</p>
-                <h2>Add Tinted Flow to your device</h2>
+                <h2>Add Tinted Tasks to your device</h2>
                 <p className="panel-note">
-                  Install Tinted Flow for quicker launch and a more app-like offline experience on supported browsers.
+                  Install Tinted Tasks for quicker launch and a more app-like offline experience on supported browsers.
                 </p>
               </div>
               <div className="app-notice-actions">
@@ -944,7 +944,7 @@ function App() {
             <p className="eyebrow">Phone view</p>
             <h2>Rotate to landscape</h2>
             <p className="panel-note">
-              Tinted Flow is tuned for landscape on phones so the board and welcome state have enough room.
+              Tinted Tasks is tuned for landscape on phones so the board and welcome state have enough room.
             </p>
           </div>
         </section>
@@ -971,9 +971,9 @@ function App() {
 
           <div className="app-branding">
             <p className="app-wordmark">
-              Tinted <span>Flow</span>
+              Tinted <span>Tasks</span>
             </p>
-            <p className="app-caption">Accessible kanban workspace</p>
+            <p className="app-caption">Minimal task management</p>
           </div>
         </div>
 
@@ -1286,7 +1286,7 @@ function getRootBoardId(boards: Board[], boardId: string | null): string | null 
 function slugify(value: string): string {
   return (
     value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') ||
-    'tinted-flow-board'
+    'tinted-tasks-board'
   )
 }
 

@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename)
 const distDir = path.resolve(__dirname, '../dist')
 const host = process.env.HOST || '127.0.0.1'
 const port = Number(process.env.PORT || 4173)
-const basePath = '/tintedflow'
+const basePath = '/tintedtasks'
 
 const contentTypes = new Map([
   ['.css', 'text/css; charset=utf-8'],

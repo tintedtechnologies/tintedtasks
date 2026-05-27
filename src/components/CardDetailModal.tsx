@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { type TaskCard } from '../lib/tintedFlow'
+import { type TaskCard } from '../lib/tintedTasks'
 import { useDialogFocusTrap } from './useDialogFocusTrap'
 
 type CardUpdates = Partial<Pick<TaskCard, 'title' | 'content' | 'color'>>

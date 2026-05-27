@@ -1,6 +1,6 @@
 {
-  "name": "Tinted Flow",
-  "short_name": "Tinted Flow",
+  "name": "Tinted Tasks",
+  "short_name": "Tinted Tasks",
   "description": "A focused kanban workspace for planning, organizing, and moving work across boards.",
   "start_url": "./",
   "scope": "./",

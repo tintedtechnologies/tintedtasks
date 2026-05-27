@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest'
-import { APP_STORAGE_KEY, ACCENT_OPTIONS, createBoard, type PersistedState } from './tintedFlow'
+import { APP_STORAGE_KEY, ACCENT_OPTIONS, createBoard, type PersistedState } from './tintedTasks'
 import { clearPersistedAppState, loadPersistedAppState, persistAppState } from './persistence'
 
 const originalWindow = globalThis.window

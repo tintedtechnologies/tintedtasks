@@ -1,5 +1,5 @@
 import { type CSSProperties } from 'react'
-import { buildCardStyle, type TaskCard } from '../lib/tintedFlow'
+import { buildCardStyle, type TaskCard } from '../lib/tintedTasks'
 
 type CardPreviewProps = {
   card: TaskCard

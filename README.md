@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="public/logo.png" alt="Tinted Flow logo" width="140" />
+  <img src="public/logo.png" alt="Tinted Tasks logo" width="140" />
 </p>
 
-# Tinted Flow
+# Tinted Tasks
 
-Tinted Flow is a local-first kanban workspace for single-user planning. It runs entirely in the browser, stores work on the device, and can be installed like a lightweight app without accounts, sync setup, or backend infrastructure.
+Tinted Tasks is a local-first kanban workspace for single-user planning. It runs entirely in the browser, stores work on the device, and can be installed like a lightweight app without accounts, sync setup, or backend infrastructure.
 
-Tinted Flow v1 is for people who want a focused planning tool that opens fast, stays simple, and keeps ownership of data local.
+Tinted Tasks v1 is for people who want a focused planning tool that opens fast, stays simple, and keeps ownership of data local.
 
 ## v1.0.0
 
-Tinted Flow v1 is built for people who want:
+Tinted Tasks v1 is built for people who want:
 
 - a focused personal planning board
 - a browser app that feels lightweight and installable
@@ -35,7 +35,7 @@ Tinted Flow v1 is built for people who want:
 
 ## Install The App
 
-Tinted Flow can be used directly in the browser or installed as a PWA on supported browsers.
+Tinted Tasks can be used directly in the browser or installed as a PWA on supported browsers.
 
 ### Use In The Browser
 
@@ -45,27 +45,27 @@ Tinted Flow can be used directly in the browser or installed as a PWA on support
 
 ### Install As An App
 
-Tinted Flow can be installed once it is deployed or running from a production preview.
+Tinted Tasks can be installed once it is deployed or running from a production preview.
 
 ### Chrome or Edge
 
-1. Open Tinted Flow in the browser.
+1. Open Tinted Tasks in the browser.
 2. Use the in-app install prompt when it appears.
-3. If the prompt does not appear, open the browser menu and choose `Install Tinted Flow` or `Add to desktop`.
+3. If the prompt does not appear, open the browser menu and choose `Install Tinted Tasks` or `Add to desktop`.
 
 ### iPhone or iPad
 
-1. Open Tinted Flow in Safari.
+1. Open Tinted Tasks in Safari.
 2. Tap the Share button.
 3. Choose `Add to Home Screen`.
 
 ### Android
 
-1. Open Tinted Flow in Chrome.
+1. Open Tinted Tasks in Chrome.
 2. Accept the install prompt, or open the browser menu.
 3. Choose `Install app` or `Add to Home screen`.
 
-After installation, Tinted Flow opens like a standalone app and reuses its cached shell offline after the first successful load.
+After installation, Tinted Tasks opens like a standalone app and reuses its cached shell offline after the first successful load.
 
 ## Product Boundaries
 
@@ -77,7 +77,7 @@ After installation, Tinted Flow opens like a standalone app and reuses its cache
 
 ## PWA And Offline
 
-Tinted Flow is installable and supports offline shell caching.
+Tinted Tasks is installable and supports offline shell caching.
 
 What that means in practice:
 
@@ -98,7 +98,7 @@ This is still a local-first web app, not a cloud-synced offline system. Your boa
 
 ### v1.0.0
 
-- Released Tinted Flow as a local-first single-user planning workspace
+- Released Tinted Tasks as a local-first single-user planning workspace
 - Added installable PWA support with offline shell caching and update notices
 - Added JSON backup and restore for local data portability
 - Added PDF export for board snapshots
@@ -144,9 +144,9 @@ Install prompts and service worker behavior are intended to be checked against t
 
 ## Deploy To GitHub Pages
 
-Tinted Flow is configured to deploy as a GitHub Pages project site under:
+Tinted Tasks is configured to deploy as a GitHub Pages project site under:
 
-- `https://tintedtechnologies.github.io/tintedflow/`
+- `https://tintedtechnologies.github.io/tintedtasks/`
 
 ### Repository Setup
 
@@ -157,7 +157,7 @@ Tinted Flow is configured to deploy as a GitHub Pages project site under:
 
 ### Important Notes
 
-- The Vite base path is configured for `/tintedflow/`.
+- The Vite base path is configured for `/tintedtasks/`.
 - The manifest and service worker are configured for project-site deployment rather than root-site deployment.
 - If you change the repository path later, update the base path in `vite.config.ts`.
 
@@ -186,7 +186,7 @@ npm run build
 src/
   App.tsx                   App shell and top-level interactions
   components/               Board columns, task modal, settings modal
-  lib/tintedFlow.ts         Pure board and card state helpers
+  lib/tintedTasks.ts         Pure board and card state helpers
   lib/persistence.ts        localStorage load/save helpers
 public/
   logo.png                  README logo asset
@@ -211,4 +211,4 @@ The automated coverage currently checks the most important local-first flows:
 
 ## Status
 
-Tinted Flow `1.0.0` is positioned as a complete v1 for single-user local-first planning. It is not intended to be a collaborative or cloud-synced product in this release.
+Tinted Tasks `1.0.0` is positioned as a complete v1 for single-user local-first planning. It is not intended to be a collaborative or cloud-synced product in this release.

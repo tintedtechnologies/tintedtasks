@@ -2,7 +2,7 @@ import { useDroppable } from '@dnd-kit/core'
 import { SortableContext, rectSortingStrategy, useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { useEffect, type CSSProperties, type KeyboardEvent as ReactKeyboardEvent } from 'react'
-import { buildCardStyle, type BoardColumn, type TaskCard } from '../lib/tintedFlow'
+import { buildCardStyle, type BoardColumn, type TaskCard } from '../lib/tintedTasks'
 
 type CardUpdates = Partial<Pick<TaskCard, 'title' | 'content' | 'color'>>
 

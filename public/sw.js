@@ -1,6 +1,6 @@
 const CACHE_VERSION = 'v1.0.0'
-const STATIC_CACHE = `tinted-flow-static-${CACHE_VERSION}`
-const RUNTIME_CACHE = `tinted-flow-runtime-${CACHE_VERSION}`
+const STATIC_CACHE = `tinted-tasks-static-${CACHE_VERSION}`
+const RUNTIME_CACHE = `tinted-tasks-runtime-${CACHE_VERSION}`
 const APP_SHELL = [
   '',
   'index.html',
